@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Rennie's salon and spa</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <div class=topdiv>
+        <div class="topdiv2">
+        <p class="time">EVERY DAY: 10:00AM-8:00PM  and weekends : 10.00AM -2:00PM / </p>
+        <a href="bookapp.html"><button class="book" type="button">Book Appointment</button></a>
+        </div>
+    </div>
+    <nav class="topnav">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+           <i class="fas fa-bars"></i>     
+        </label>
+        <label class=logo>Rennie's salon and spa</label>
+    <ul class=topnavul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+    </nav>
+    <div id="appointment">
+            <p>Fill the below form and we will get in touch with you soon!</p>
+            <form id="myform" action="contact.php" method="post" name="myform" data-netlify="True" onsubmit="return validation();">
+          <div class="row">
+            <div class="col-25">
+              <label for="name"> Name:*</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="fname" name="cname" placeholder="Your name" required>
+            </div>
+          </div>
+         <div class="row">
+            <div class="col-25">
+              <label for="phone">Phone Number:*</label>
+            </div>
+              <div class="col-75">
+                <input type="tel" name="phone" id="phone_number" placeholder="phone number" pattern="^\d{10}$" required="required">
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="details">Comments:</label>
+            </div>
+            <div class="col-75">
+              <textarea id="details" name="details"  style="height:100px"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript">
+    function validation(){
+        $.ajax({
+            type:'POST',
+            url:'contact.php',
+            async:'false',
+            data:$('#myform').serialize(),
+            success:function(response){
+                alert(response);
+            }
+        });
+        var form=document.getElementById('myform').reset();
+        return false;
+    }
+</script>
+    <div id="gmap">
+            <div id="map">
+            <h1 id="contacthead">Contact</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.01019118367!2d36.96031347376616!3d-1.153211035492643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1715590d5607%3A0x8067a87f7aead19!2sZetech%20University!5e0!3m2!1sen!2ske!4v1696499658829!5m2!1sen!2ske" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div id="addr">
+                <h1>Address</h1>
+                <button id="contactbtn"><a id="tel" href="tel:+254769714576">Call us</a></button>
+                 <p class="contactpara"> tel: +254769714576</p>
+                 <p class="contactpara">zetech university,ruiru campus</p>
+                  <p class="contactpara">Ruiru, kiambu</p>
+                  <p class="contactpara">kyalo.ean@gmail.com</p>
+            </div>
+    </div>
+</body>
+</html>
